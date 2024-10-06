@@ -33,5 +33,10 @@ class RomanNumerals:
 
     @staticmethod
     def from_roman(roman_num: str) -> int:
-        
-        return 0
+        dec_num = 0
+        for k, v in roman_numerals.items():
+            while roman_num.startswith(v):
+                i = roman_num.find(v)
+                dec_num += k
+                roman_num = roman_num[i+len(v):]
+        return dec_num

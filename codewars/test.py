@@ -22,4 +22,15 @@ def to_roman(val: int) -> str:
         val = r
     return roman_string
 
-print(to_roman(1940))
+def from_roman(roman_num: str) -> int:
+    dec_num = 0
+    for k, v in roman_numerals.items():
+        while roman_num.startswith(v):
+            i = roman_num.find(v)
+            dec_num += k
+            roman_num = roman_num[i+len(v):]
+    return dec_num
+
+roman_num = to_roman(3959)
+print(roman_num)
+print(from_roman(roman_num))
